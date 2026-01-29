@@ -16,14 +16,23 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 從 localStorage 載入收藏
+  // 從 localStorage 載入收藏 (SSR 安全)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const stored = localStorage.getItem('ai-tools-favorites');
     if (stored) {
       try {
-        setFavorites(JSON.parse(stored));
-      } catch {
-        setFavorites([]);
+        const parsed = JSON.parse(stored);
+        // 驗證是否為字串陣列
+        if (Array.isArray(parsed) && parsed.every(item => typeof item === 'string')) {
+          setFavorites(parsed);
+        } else {
+          localStorage.removeItem('ai-tools-favorites');
+        }
+      } catch (error) {
+        console.error('Failed to parse favorites:', error);
+        localStorage.removeItem('ai-tools-favorites');
       }
     }
     setIsLoaded(true);

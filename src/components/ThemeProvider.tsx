@@ -17,17 +17,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    // 讀取儲存的主題設定
+    // 讀取儲存的主題設定 (SSR 安全)
+    if (typeof window === 'undefined') return;
+
     const stored = localStorage.getItem('theme') as Theme | null;
-    if (stored) {
+    if (stored && ['light', 'dark', 'system'].includes(stored)) {
       setTheme(stored);
     }
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const root = window.document.documentElement;
 
-    // 監聽系統主題變化
+    // 監聯系統主題變化
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const updateTheme = () => {
@@ -52,7 +56,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const handleSetTheme = (newTheme: Theme) => {
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme);
+    }
   };
 
   return (
