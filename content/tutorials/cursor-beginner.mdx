@@ -1,0 +1,130 @@
+---
+title: Cursor 新手入門：AI 程式編輯器完全教學
+description: 從安裝到實戰，學會用 Cursor 提升 10 倍程式開發效率
+toolId: cursor
+difficulty: beginner
+readTime: 20 分鐘
+date: 2025-01-29
+author: AI 工具學習指南
+---
+
+# Cursor 新手入門：AI 程式編輯器完全教學
+
+Cursor 是一款內建 AI 功能的程式碼編輯器，基於 VS Code 打造，讓你可以用自然語言與 AI 對話來寫程式。
+
+## 為什麼要用 Cursor？
+
+- **對話式程式開發**：直接用中文描述需求，AI 幫你寫程式
+- **智慧程式碼補全**：比 Copilot 更強大的補全功能
+- **多檔案編輯**：AI 可以同時修改多個檔案
+- **程式碼解釋**：選取程式碼，AI 幫你解釋
+
+## 步驟 1：下載與安裝
+
+1. 前往 [cursor.com](https://cursor.com)
+2. 點擊「Download」下載對應作業系統版本
+3. 安裝完成後啟動 Cursor
+4. 登入帳號（可用 Google 或 GitHub）
+
+## 步驟 2：基本介面
+
+Cursor 的介面和 VS Code 幾乎一樣，但多了幾個 AI 功能：
+
+- **Cmd + K**：內嵌 AI 對話（在程式碼中直接編輯）
+- **Cmd + L**：側邊 AI 對話（像 ChatGPT 一樣聊天）
+- **Cmd + I**：Composer 模式（多檔案編輯）
+
+## 步驟 3：用 Cmd + K 寫程式
+
+這是最常用的功能！在任何位置按 `Cmd + K`，輸入需求：
+
+```
+寫一個函數，接收陣列並回傳最大值
+```
+
+AI 會直接在你的游標位置生成程式碼：
+
+```javascript
+function findMax(arr) {
+  if (arr.length === 0) return undefined;
+  return Math.max(...arr);
+}
+```
+
+## 步驟 4：用 Cmd + L 對話
+
+按 `Cmd + L` 開啟側邊對話框，可以：
+
+- 詢問程式問題
+- 請 AI 解釋程式碼
+- 討論架構設計
+
+**範例對話**：
+> 這段程式碼有什麼問題？
+>
+> ```javascript
+> const data = fetch('/api/users');
+> console.log(data);
+> ```
+
+AI 會告訴你 fetch 是非同步的，需要用 await。
+
+## 步驟 5：選取程式碼讓 AI 編輯
+
+1. 選取一段程式碼
+2. 按 `Cmd + K`
+3. 輸入指令，例如：「加入錯誤處理」
+
+AI 會根據你的指令修改選取的程式碼。
+
+## 步驟 6：使用 Composer 多檔案編輯
+
+按 `Cmd + I` 開啟 Composer，可以一次修改多個檔案：
+
+```
+建立一個 Express API，包含：
+- routes/users.js
+- controllers/userController.js
+- models/User.js
+```
+
+AI 會自動建立所有檔案並寫好程式碼。
+
+## 實用技巧
+
+### 1. 給 AI 上下文
+用 `@` 符號引用檔案或資料夾：
+```
+@src/utils 參考這個資料夾的風格，寫一個新的工具函數
+```
+
+### 2. 設定專案規則
+建立 `.cursorrules` 檔案，告訴 AI 專案的規範：
+```
+- 使用 TypeScript
+- 用 React Hooks 不用 Class Component
+- 命名使用 camelCase
+```
+
+### 3. 善用 Tab 補全
+Cursor 的 Tab 補全非常強大，會根據上下文自動補全整行或整段程式碼。
+
+## 常見問題
+
+**Q: Cursor 免費版有什麼限制？**
+A: 免費版每月有 2000 次補全和 50 次 GPT-4 對話。
+
+**Q: 可以用自己的 API Key 嗎？**
+A: 可以！在設定中加入 OpenAI API Key 即可。
+
+**Q: Cursor 支援哪些語言？**
+A: 幾乎所有程式語言都支援，包含 Python、JavaScript、TypeScript、Go、Rust 等。
+
+## 下一步
+
+學會基礎後，你可以：
+1. 嘗試用 Cursor 建立一個完整專案
+2. 探索 Cursor 的 Agent 模式
+3. 學習寫更好的 prompt 來獲得更好的程式碼
+
+開始用 Cursor 寫程式吧！

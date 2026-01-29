@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SearchBar from './SearchBar';
+import ThemeToggle from './ThemeToggle';
 import { getAllTools } from '@/data/tools';
 
 export default function Header() {
@@ -16,9 +17,9 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-white/80 px-6 py-3 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/80 px-6 py-3 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-        <Link href="/" className="flex-shrink-0 text-xl font-bold text-gray-900">
+        <Link href="/" className="flex-shrink-0 text-xl font-bold text-gray-900 dark:text-white">
           🤖 AI 工具指南
         </Link>
 
@@ -26,24 +27,53 @@ export default function Header() {
           <SearchBar tools={tools} />
         </div>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-4">
           <Link
             href="/tools"
-            className={`text-sm font-medium transition-colors ${
-              isActive('/tools') ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
+            className={`hidden text-sm font-medium transition-colors sm:block ${
+              isActive('/tools')
+                ? 'text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
             }`}
           >
             工具列表
           </Link>
           <Link
             href="/tutorials"
-            className={`text-sm font-medium transition-colors ${
-              isActive('/tutorials') ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'
+            className={`hidden text-sm font-medium transition-colors sm:block ${
+              isActive('/tutorials')
+                ? 'text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
             }`}
           >
             教學文章
           </Link>
+          <ThemeToggle />
         </nav>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="mt-3 flex items-center gap-4 sm:hidden">
+        <Link
+          href="/tools"
+          className={`text-sm font-medium ${
+            isActive('/tools')
+              ? 'text-blue-600 dark:text-blue-400'
+              : 'text-gray-600 dark:text-gray-400'
+          }`}
+        >
+          工具列表
+        </Link>
+        <Link
+          href="/tutorials"
+          className={`text-sm font-medium ${
+            isActive('/tutorials')
+              ? 'text-blue-600 dark:text-blue-400'
+              : 'text-gray-600 dark:text-gray-400'
+          }`}
+        >
+          教學文章
+        </Link>
       </div>
 
       {/* Mobile Search */}
