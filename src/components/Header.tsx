@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SearchBar from './SearchBar';
 import ThemeToggle from './ThemeToggle';
+import FavoriteButton from './FavoriteButton';
 import { getAllTools } from '@/data/tools';
 
 export default function Header() {
@@ -11,8 +12,9 @@ export default function Header() {
   const tools = getAllTools();
 
   const isActive = (path: string) => {
-    if (path === '/tools') return pathname.startsWith('/tools');
+    if (path === '/tools') return pathname.startsWith('/tools') && !pathname.startsWith('/compare');
     if (path === '/tutorials') return pathname.startsWith('/tutorials');
+    if (path === '/compare') return pathname.startsWith('/compare');
     return pathname === path;
   };
 
@@ -48,6 +50,17 @@ export default function Header() {
           >
             教學文章
           </Link>
+          <Link
+            href="/compare"
+            className={`hidden text-sm font-medium transition-colors sm:block ${
+              isActive('/compare')
+                ? 'text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
+            }`}
+          >
+            工具比較
+          </Link>
+          <FavoriteButton />
           <ThemeToggle />
         </nav>
       </div>
@@ -73,6 +86,16 @@ export default function Header() {
           }`}
         >
           教學文章
+        </Link>
+        <Link
+          href="/compare"
+          className={`text-sm font-medium ${
+            isActive('/compare')
+              ? 'text-blue-600 dark:text-blue-400'
+              : 'text-gray-600 dark:text-gray-400'
+          }`}
+        >
+          工具比較
         </Link>
       </div>
 

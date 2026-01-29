@@ -32,24 +32,24 @@ function ToolsContent() {
     <main className="mx-auto max-w-6xl px-6 py-8">
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="mb-2 text-3xl font-bold text-gray-900">🛠️ AI 工具列表</h1>
-        <p className="text-gray-600">
+        <h1 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">🛠️ AI 工具列表</h1>
+        <p className="text-gray-600 dark:text-gray-400">
           探索 {allTools.length}+ 個 AI 工具，依分類和地區篩選找到適合你的工具
         </p>
       </div>
 
       {/* Filters */}
-      <div className="mb-8 space-y-4 rounded-xl border bg-white p-6">
+      <div className="mb-8 space-y-4 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
         {/* Category Filter */}
         <div>
-          <h3 className="mb-3 text-sm font-medium text-gray-700">工具分類</h3>
+          <h3 className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-300">工具分類</h3>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                 selectedCategory === 'all'
                   ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
               }`}
             >
               全部
@@ -61,7 +61,7 @@ function ToolsContent() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   selectedCategory === value
                     ? 'bg-blue-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
                 }`}
               >
                 {label}
@@ -72,14 +72,14 @@ function ToolsContent() {
 
         {/* Region Filter */}
         <div>
-          <h3 className="mb-3 text-sm font-medium text-gray-700">地區來源</h3>
+          <h3 className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-300">地區來源</h3>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedRegion('all')}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                 selectedRegion === 'all'
                   ? 'bg-green-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
               }`}
             >
               🌍 全部
@@ -91,7 +91,7 @@ function ToolsContent() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   selectedRegion === value
                     ? 'bg-green-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
                 }`}
               >
                 {label}
@@ -116,8 +116,8 @@ function ToolsContent() {
 
       {/* Results Count */}
       <div className="mb-6 flex items-center justify-between">
-        <p className="text-sm text-gray-500">
-          找到 <span className="font-semibold text-gray-900">{filteredTools.length}</span> 個工具
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          找到 <span className="font-semibold text-gray-900 dark:text-white">{filteredTools.length}</span> 個工具
         </p>
       </div>
 
@@ -129,10 +129,10 @@ function ToolsContent() {
           ))}
         </div>
       ) : (
-        <div className="rounded-xl border border-dashed border-gray-300 bg-white p-12 text-center">
+        <div className="rounded-xl border border-dashed border-gray-300 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-900">
           <div className="mb-4 text-5xl">🔍</div>
-          <h3 className="mb-2 text-lg font-bold text-gray-900">沒有找到符合條件的工具</h3>
-          <p className="mb-4 text-gray-600">
+          <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">沒有找到符合條件的工具</h3>
+          <p className="mb-4 text-gray-600 dark:text-gray-400">
             試著調整篩選條件，或瀏覽全部工具
           </p>
           <button
@@ -171,7 +171,7 @@ function LoadingFallback() {
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Header />
       <Suspense fallback={<LoadingFallback />}>
         <ToolsContent />
