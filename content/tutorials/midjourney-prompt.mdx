@@ -1,0 +1,204 @@
+---
+title: Midjourney 提示詞技巧大全
+description: 掌握提示詞寫法，生成高品質 AI 圖像
+toolId: midjourney
+difficulty: intermediate
+readTime: 25 分鐘
+date: 2025-01-27
+author: AI 工具學習指南
+---
+
+# Midjourney 提示詞技巧大全
+
+Midjourney 是目前最受歡迎的 AI 圖像生成工具之一，而好的提示詞是生成高品質圖片的關鍵。
+
+## 基礎語法
+
+Midjourney 的基本提示詞格式：
+
+```
+/imagine prompt: [主題描述], [風格], [參數]
+```
+
+例如：
+```
+/imagine prompt: a cute cat sitting on a windowsill, watercolor style, --ar 16:9
+```
+
+## 提示詞結構
+
+一個完整的提示詞通常包含：
+
+1. **主題** - 你想畫什麼
+2. **細節** - 顏色、材質、環境
+3. **風格** - 藝術風格、攝影風格
+4. **參數** - 比例、品質等
+
+## 常用風格關鍵詞
+
+### 藝術風格
+
+| 關鍵詞 | 效果 |
+|--------|------|
+| watercolor | 水彩畫風格 |
+| oil painting | 油畫風格 |
+| digital art | 數位藝術 |
+| anime style | 動漫風格 |
+| pixel art | 像素風格 |
+| 3D render | 3D 渲染 |
+| minimalist | 極簡風格 |
+| surrealism | 超現實主義 |
+
+### 攝影風格
+
+| 關鍵詞 | 效果 |
+|--------|------|
+| portrait photography | 人像攝影 |
+| macro photography | 微距攝影 |
+| aerial view | 空拍視角 |
+| bokeh | 背景虛化 |
+| golden hour | 黃金時段光線 |
+| studio lighting | 棚拍燈光 |
+| cinematic | 電影感 |
+
+### 情緒氛圍
+
+| 關鍵詞 | 效果 |
+|--------|------|
+| dreamy | 夢幻的 |
+| moody | 情緒化的 |
+| vibrant | 鮮豔的 |
+| dark | 黑暗的 |
+| ethereal | 空靈的 |
+| cozy | 溫馨的 |
+
+## 常用參數
+
+### 圖片比例 --ar
+
+```
+--ar 1:1    # 正方形（預設）
+--ar 16:9   # 橫向寬螢幕
+--ar 9:16   # 直向手機螢幕
+--ar 4:3    # 傳統螢幕比例
+--ar 3:2    # 相片比例
+```
+
+### 風格化程度 --stylize (--s)
+
+```
+--s 0      # 最忠於提示詞
+--s 100    # 預設值
+--s 1000   # 最高藝術化
+```
+
+### 品質 --quality (--q)
+
+```
+--q 0.25   # 快速生成，品質較低
+--q 0.5    # 一般品質
+--q 1      # 高品質（預設）
+```
+
+### 混亂度 --chaos
+
+```
+--chaos 0    # 結果一致
+--chaos 100  # 結果多變
+```
+
+## 進階技巧
+
+### 權重調整
+
+使用 `::` 來調整關鍵詞權重：
+
+```
+cat::2 dog::1  # 貓的權重是狗的兩倍
+```
+
+### 負面提示詞
+
+使用 `--no` 來排除不想要的元素：
+
+```
+beautiful landscape --no people, buildings
+```
+
+### 圖片參考
+
+上傳圖片作為參考：
+
+```
+/imagine prompt: [圖片URL] a portrait in similar style
+```
+
+### 多重提示詞
+
+使用 `::` 分隔不同概念：
+
+```
+hot:: cold::  # 同時包含熱和冷的概念
+```
+
+## 實用範本
+
+### 人物肖像
+
+```
+portrait of a young woman, soft lighting,
+professional photography, shallow depth of field,
+neutral background, high detail --ar 2:3 --s 250
+```
+
+### 風景圖
+
+```
+majestic mountain landscape at sunrise,
+misty valleys, dramatic clouds, golden light,
+National Geographic style photography --ar 16:9
+```
+
+### 產品圖
+
+```
+modern smartphone on marble surface,
+minimalist composition, soft shadows,
+studio lighting, product photography --ar 1:1
+```
+
+### Logo 設計
+
+```
+minimalist logo design for a coffee shop,
+simple geometric shapes, modern,
+clean lines, vector style --ar 1:1
+```
+
+## 常見問題
+
+**Q: 為什麼生成的圖片和我想的不一樣？**
+
+可能原因：
+- 提示詞不夠具體
+- 關鍵詞順序影響權重
+- 試著增加更多細節描述
+
+**Q: 如何讓人物的手看起來正常？**
+
+這是 AI 的已知限制，可以嘗試：
+- 避免特寫手部
+- 使用 `--v 6` 最新版本
+- 多生成幾次挑選
+
+## 下一步
+
+- 多練習不同風格的提示詞
+- 建立自己的提示詞庫
+- 嘗試結合多種風格
+
+---
+
+**相關資源：**
+- [Midjourney 官方文件](https://docs.midjourney.com)
+- [Prompt Hero](https://prompthero.com) - 提示詞參考庫
